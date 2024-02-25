@@ -1,3 +1,8 @@
+using Business.Abstracts;
+using Business.Concrete;
+using DataAccess.Abstracts;
+using DataAccess.Concretes;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -6,6 +11,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Biri senden IBrandService isterse BrandManager ver demek
+// Bu satýr gelince new BrandManager() oluþturur ve bu sayede IBrandService kullandýðý yerlerde onu verir
+builder.Services.AddSingleton<IBrandService, BrandManager>();
+
+builder.Services.AddSingleton<IBrandDal, BrandDal>();
 
 var app = builder.Build();
 
