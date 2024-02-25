@@ -1,0 +1,6 @@
+@_2024_YazilimGelistiriciKampi_WebApi_HostAddress = http://localhost:5114
+
+GET {{_2024_YazilimGelistiriciKampi_WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
